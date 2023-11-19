@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+:root {
+  --primary-color: #181818;
+  --secondary-color: #232420;
+  --accent-color: 274, 79%, 66%;
+  --white: #e9e9e9;
+  --border-radius: 0.5rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.sm-gap {
+  gap: 0.5rem;
+}
+
+.gap {
+  gap: 1rem;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.jc-c {
+  justify-content: center;
+}
+
+.ai-c {
+  align-items: center;
+}
+
+.txt-a-c {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+  color: var(--white);
+  background-color: var(--secondary-color);
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+input {
+  font-family: inherit;
+}
+
+label {
+  display: block;
+}
+
+.nav {
+  background-color: var(--primary-color);
+  padding-block: 1.5rem;
+  border-bottom: 2px solid hsl(var(--accent-color));
+}
+
+.nav__ul {
+  list-style: none;
+}
+
+.nav__link {
+  padding-bottom: 0.2rem;
+  border-bottom: 2.5px solid var(--primary-color);
+  will-change: contents;
+  text-decoration: none;
+  color: var(--white);
+  transition: border-bottom-color 0.2s ease-in-out;
+}
+
+.nav__link:hover {
+  border-bottom-color: hsl(var(--accent-color));
+}
+
+.nav__logo {
+  width: 2rem;
+}
+
+.retrive-bar {
+  padding-block: 1.5rem;
+}
+
+.retrive-bar__search-bar {
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+}
+
+.retrive-bar__search-bar > input {
+  padding: 0.35rem;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.retrive-bar__select {
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  border: none;
+  font-size: 1rem;
+  color: var(--white);
+  border-radius: var(--border-radius);
+}
+
+.table {
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.table td,
+th {
+  padding: 1rem;
+  background-color: var(--primary-color);
+}
+
+.table .action-btn {
+  min-height: 35px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.table .action-btn svg {
+  fill: var(--white);
+  transition: fill 0.2s ease-in-out;
+}
+
+.table .action-btn:hover svg,
+.table .action-btn:focus svg {
+  fill: hsl(var(--accent-color));
+}
+
+.indicator,
+.btn {
+  padding: 0.5rem;
+  background-color: hsl(var(--accent-color), 0.1);
+  color: hsl(var(--accent-color));
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.btn {
+  border: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.btn:hover,
+:focus {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+form {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  margin-inline: auto;
+  width: fit-content;
+}
+
+form > * + * {
+  margin-top: 1rem;
+}
+
+form label {
+  margin-bottom: 0.25rem;
+}
+
+form input,
+textarea {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.35rem;
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+form button {
+  width: 100%;
+  padding: 0.8rem 2rem;
+  border: none;
+  background-color: hsl(var(--accent-color));
+  border-radius: var(--border-radius);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: var(--white);
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+form button:hover,
+:focus {
+  opacity: 0.8;
+}
+
+.message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 30rem;
+  height: 20rem;
+  padding: 1.5rem;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  z-index: 100;
+  overflow-y: scroll;
+}
