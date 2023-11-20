@@ -36,14 +36,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       </nav>
     </header>
     <main class="container">
-      <form action="./addpost.php" method="post">
+      <form action="./addpost.php" method="post" class="form">
         <div>
           <label for="name">Imie</label>
           <input type="text" name="name" id="name" />
         </div>
         <div>
           <label for="email">Email</label>
-          <input type="text" name="email" id="email" />
+          <input type="email" name="email" id="email" />
         </div>
         <div>
           <label for="message">Wiadomość</label>
@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             style="resize: vertical"
           ></textarea>
         </div>
-        <button>Dodaj</button>
+        <button type="submit" class="button">Dodaj</button>
       </form>
     </main>
   </body>

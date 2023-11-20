@@ -64,6 +64,8 @@ body {
   background-color: var(--secondary-color);
   font-size: 1rem;
   font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  padding-bottom: 1.5rem;
 }
 
 input {
@@ -75,6 +77,8 @@ label {
 }
 
 .nav {
+  position: relative;
+  z-index: 100;
   background-color: var(--primary-color);
   padding-block: 1.5rem;
   border-bottom: 2px solid hsl(var(--accent-color));
@@ -178,7 +182,7 @@ th {
   cursor: pointer;
 }
 
-form {
+.form {
   margin-top: 1.5rem;
   padding: 1.5rem;
   background-color: var(--primary-color);
@@ -187,15 +191,15 @@ form {
   width: fit-content;
 }
 
-form > * + * {
+.form > * + * {
   margin-top: 1rem;
 }
 
-form label {
+.form label {
   margin-bottom: 0.25rem;
 }
 
-form input,
+.form input,
 textarea {
   width: 100%;
   font-size: 1rem;
@@ -204,7 +208,7 @@ textarea {
   border-radius: var(--border-radius);
 }
 
-form button {
+.form .button {
   width: 100%;
   padding: 0.8rem 2rem;
   border: none;
@@ -217,7 +221,7 @@ form button {
   transition: opacity 0.2s ease-in-out;
 }
 
-form button:hover,
+.form .button:hover,
 :focus {
   opacity: 0.8;
 }
@@ -235,4 +239,39 @@ form button:hover,
   border-radius: var(--border-radius);
   z-index: 100;
   overflow-y: scroll;
+}
+
+.message > p {
+  margin-top: 1.5rem;
+}
+
+.edit-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.info-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  background-color: hsla(75, 6%, 13%, 0.25);
+  z-index: 99;
+}
+
+.close-btn {
+  display: block;
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn > img {
+  width: 2.4rem;
 }
