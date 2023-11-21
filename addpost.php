@@ -6,12 +6,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = $_POST["email"];
   $message = $_POST["message"];
 
-  $sql = "INSERT INTO `goscie` (`name`, `email`, `message`) VALUES ('$name', '$email', '$message')";
-  $result = $conn->query($sql);
+  $stmt = $conn->prepare("INSERT INTO `goscie` (`name`, `email`, `message`) VALUES (?, ?, ?)");
+  $stmt->bind_param("sss", $name, $email, $message);
+  
+  $result = $stmt->execute();
+
   if(!$result) {
     echo "Nie udało się dodać wpisu";
   }
 }
+
+$stmt->close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>

@@ -58,14 +58,25 @@
             
             
             if(isset($_GET["search-string"]) && (empty($_GET["search-string"]) === false)) {
-              $sql .= " WHERE `name` LIKE '%{$_GET["search-string"]}%' OR `email` LIKE '%{$_GET["search-string"]}%' OR `message` LIKE '%{$_GET["search-string"]}%' OR `date` LIKE '%{$_GET["search-string"]}%' OR `status` LIKE '%{$_GET["search-string"]}%' ";
+              $sql .= " WHERE `name` LIKE '%?%' OR `email` LIKE '%?%' OR `message` LIKE '%?%' OR `date` LIKE '%?%' OR `status` LIKE '%?%' ";
             }
 
             if(isset($_GET["number-of-records"]) && empty($_GET["number-of-records"]) === false && $_GET["number-of-records"] !== "all") {
               $sql .= " LIMIT {$_GET["number-of-records"]} ";
             }
 
-            $result = $conn->query($sql);
+            $stmt = $conn->prepare($sql);
+            
+            if(isset($_GET["search-string"])) {
+              $stmt->bind_param("sssss", $_GET["search-string"], $_GET["search-string"], $_GET["search-string"], $_GET["search-string"], $_GET["search-string"]);
+            }
+
+            if(isset($_GET["number-of-records"]) && $_GET["number-of-records"] !== "all") {
+              $stmt->bind_param("i", $_GET["number-of-records"]);
+            }
+
+            $stmt->execute();
+            $result = $stmt->get_result();
 
             if ($result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
@@ -96,6 +107,9 @@
               END;
                   }
               }
+
+              $stmt->close();
+              $conn->close();
           ?>
         </tbody>
       </table>
